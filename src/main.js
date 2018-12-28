@@ -10,20 +10,26 @@ import firebase from 'firebase'
 import 'firebase/messaging'
 
 let config = {
-  apiKey: "AIzaSyDuxZyasFUkbsy76ojpqP8zSF6JEPoqdEQ",
-  authDomain: "baboon-1537785300429.firebaseapp.com",
-  databaseURL: "https://baboon-1537785300429.firebaseio.com",
-  projectId: "baboon-1537785300429",
-  storageBucket: "baboon-1537785300429.appspot.com",
-  messagingSenderId: "458802084766"
+  apiKey: 'AIzaSyDuxZyasFUkbsy76ojpqP8zSF6JEPoqdEQ',
+  authDomain: 'baboon-1537785300429.firebaseapp.com',
+  databaseURL: 'https://baboon-1537785300429.firebaseio.com',
+  projectId: 'baboon-1537785300429',
+  storageBucket: 'baboon-1537785300429.appspot.com',
+  messagingSenderId: '458802084766'
 }
 firebase.initializeApp(config)
 
 navigator.serviceWorker
-  .register('/sw.js')
-  .then((registration) => {
-    firebase.messaging().useServiceWorker(registration);
+  .register('/static/sw.js')
+  .then(async registration => {
+    firebase.messaging().useServiceWorker(registration)
+
+    const messaging = firebase.messaging()
+    await messaging.requestPermission()
+    const token = await messaging.getToken()
+    console.log('token:', token)
   })
+  .catch(console.error)
 
 Vue.component('v-chart', ECharts)
 
