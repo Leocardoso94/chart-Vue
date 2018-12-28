@@ -10,12 +10,12 @@ import firebase from 'firebase'
 import 'firebase/messaging'
 
 let config = {
-  apiKey: 'AIzaSyDuxZyasFUkbsy76ojpqP8zSF6JEPoqdEQ',
-  authDomain: 'baboon-1537785300429.firebaseapp.com',
-  databaseURL: 'https://baboon-1537785300429.firebaseio.com',
-  projectId: 'baboon-1537785300429',
-  storageBucket: 'baboon-1537785300429.appspot.com',
-  messagingSenderId: '458802084766'
+  apiKey: "AIzaSyDuxZyasFUkbsy76ojpqP8zSF6JEPoqdEQ",
+  authDomain: "baboon-1537785300429.firebaseapp.com",
+  databaseURL: "https://baboon-1537785300429.firebaseio.com",
+  projectId: "baboon-1537785300429",
+  storageBucket: "baboon-1537785300429.appspot.com",
+  messagingSenderId: "458802084766"
 }
 firebase.initializeApp(config)
 
